@@ -21,10 +21,11 @@ Marketplace API
     add_a_catalog_to_marketplace
     modify_a_catalog
     delete_a_catalog
-    add_a_plugin_to_catalog
-    remove_a_plugin_from_catalog
     list_all_plugins_in_a_catalog
-    add_a_workflow_to_catalog
-    remove_a_workflow_from_catalog
+    add_a_plugin_to_catalog
+    update_a_plugin_in_catalog
+    remove_a_plugin_from_catalog
     list_all_workflows_in_catalog
-    move_an_asset_between_catalogs
+    add_a_workflow_to_catalog
+    update_a_workflow_in_a_catalog
+    remove_a_workflow_from_catalog

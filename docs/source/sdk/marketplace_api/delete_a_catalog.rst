@@ -4,28 +4,30 @@ Delete a catalog
 
 .. tabs::
 
-  .. tab:: Python SDK
+  .. tab:: REST
 
     .. code-block:: sh
 
-      curl
+        API Endpoint: <IMPROMPT_SERVER_URL>/marketplaces/<MARKETPLACE_ID>/catalogs/<CATALOG_ID>
+        Method: DELETE
+        X-Api-Key: API_KEY
 
-  .. tab:: CLI
-
-    .. code-block:: python
-
-      import
 
   .. tab:: CURL
 
     .. code-block:: python
 
-      import
+      curl --location --request DELETE '<IMPROMPT_SERVER_URL>/marketplaces/<MARKETPLACE_ID>/catalogs/<CATALOG_ID>' \
+        --header 'Authorization: API_KEY' \
+        '
 
-  .. tab:: REST
 
-    .. code-block:: sh
+Sample Response
+=================
 
-        API Endpoint: https://api.imprompt.ai/openplugin/api/plugin-selector
+::
 
+    {
+        "message": "MarketplaceCatalog deleted"
+    }
 

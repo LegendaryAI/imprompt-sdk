@@ -4,28 +4,37 @@ Get a catalog from a marketplace
 
 .. tabs::
 
-  .. tab:: Python SDK
+  .. tab:: REST
 
     .. code-block:: sh
 
-      curl
+        API Endpoint: <IMPROMPT_SERVER_URL>/marketplaces/<MARKETPLACE_ID>/catalogs/<CATALOG_ID>
+        Method: GET
+        X-Api-Key: API_KEY
 
-  .. tab:: CLI
-
-    .. code-block:: python
-
-      import
 
   .. tab:: CURL
 
     .. code-block:: python
 
-      import
+      curl --location --request GET '<IMPROMPT_SERVER_URL>/marketplaces/<MARKETPLACE_ID>/catalogs/<CATALOG_ID>' \
+           --header 'Authorization: API_KEY' \
+        '
 
-  .. tab:: REST
 
-    .. code-block:: sh
+Sample Response
+=================
 
-        API Endpoint: https://api.imprompt.ai/openplugin/api/plugin-selector
+::
 
+    {
+        "at_stage": "dev",
+        "created_at": "Mon, 31 Jul 2023 10:23:11 GMT",
+        "description": null,
+        "id": 1,
+        "is_published": false,
+        "marketplace_id": 1,
+        "name": "My Catalog",
+        "updated_at": "Mon, 31 Jul 2023 10:23:11 GMT"
+    }
 

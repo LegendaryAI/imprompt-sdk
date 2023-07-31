@@ -4,28 +4,30 @@ Remove user access from an internal marketplace
 
 .. tabs::
 
-  .. tab:: Python SDK
+  .. tab:: REST
 
     .. code-block:: sh
 
-      curl
+        API Endpoint: <IMPROMPT_SERVER_URL>/marketplaces/<MARKETPLACE_ID>/users/<USER_ID>/marketplace-private-access
+        Method: DELETE
+        X-Api-Key: API_KEY
 
-  .. tab:: CLI
-
-    .. code-block:: python
-
-      import
 
   .. tab:: CURL
 
     .. code-block:: python
 
-      import
+      curl --location --request DELETE '<IMPROMPT_SERVER_URL>/marketplaces/<MARKETPLACE_ID>/users/<USER_ID>/marketplace-private-access' \
+        --header 'Authorization: API_KEY' \
+        '
 
-  .. tab:: REST
 
-    .. code-block:: sh
+Sample Response
+=================
 
-        API Endpoint: https://api.imprompt.ai/openplugin/api/plugin-selector
+::
 
+    {
+        "message": "MarketplacePrivateAcces deleted"
+    }
 

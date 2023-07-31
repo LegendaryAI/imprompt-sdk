@@ -1,5 +1,5 @@
 =================================
-Add a plugin to a catalog
+Update a workflow in a catalog
 =================================
 
 
@@ -9,11 +9,10 @@ Add a plugin to a catalog
 
     .. code-block:: sh
 
-        API Endpoint: <IMPROMPT_SERVER_URL>/marketplace-catalogs/<MARKETPLACE_CATALOG_ID>/plugins
-        Method: POST
-        Body: {
-            "plugin_external_id":"94c174594982989bd807dbbe0",
-            "priority_ranking":100
+        API Endpoint: <IMPROMPT_SERVER_URL>/marketplace-catalogs/<marketplace_catalog_id>/workflows/<workflow_id>
+        Method: PUT
+        Body:{
+            "priority_ranking":10
         }
         X-Api-Key: API_KEY
 
@@ -22,12 +21,11 @@ Add a plugin to a catalog
 
     .. code-block:: python
 
-      curl --location '<IMPROMPT_SERVER_URL>/marketplace-catalogs/<MARKETPLACE_CATALOG_ID>/plugins' \
+      curl --location --request PUT '<IMPROMPT_SERVER_URL>/marketplace-catalogs/<marketplace_catalog_id>/workflows/<workflow_id>' \
         --header 'Content-Type: application/json' \
-        --header 'Authorization: <API_KEY>' \
+        --header 'Authorization: API_KEY' \
         --data '{
-            "plugin_external_id":"94c174594982989bd807dbbe0",
-            "priority_ranking":100
+            "priority_ranking":10
         }'
 
 
@@ -43,9 +41,6 @@ These parameters are used to configure the API request. The API request body is 
    * - Field
      - Type
      - Description
-   * - plugin_external_id
-     - string
-     - The external id of the plugin to be added to the catalog.
    * - priority_ranking
      - integer
      - The priority ranking of the plugin in the catalog. The lower the number, the higher the priority. If not provided, the plugin will be added to the end of the catalog.
@@ -57,9 +52,9 @@ Sample Response
 
     {
         "added_by_user_id": 2,
-        "created_at": "Mon, 31 Jul 2023 11:02:44 GMT",
+        "created_at": "Mon, 31 Jul 2023 12:47:26 GMT",
         "marketplace_catalog_id": 2,
-        "plugin_external_id": "4c174594982989bd807dbbe0",
         "priority_ranking": 100,
-        "updated_at": "Mon, 31 Jul 2023 11:02:44 GMT"
+        "updated_at": "Mon, 31 Jul 2023 12:47:26 GMT",
+        "workflow_id": "6f37b1f7-6809-45a3-87a0-b257403affee"
     }
