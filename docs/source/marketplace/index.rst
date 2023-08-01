@@ -11,5 +11,4 @@ Imprompt allows customers to create their own internal or external marketplaces.
 
     introduction
     catalog
-    plugin
-    workflow
+    assets

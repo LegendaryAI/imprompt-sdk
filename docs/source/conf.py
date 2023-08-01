@@ -29,7 +29,8 @@ author = 'Shrikant M & Barrett J'
 version = data["tool"]["poetry"]["version"]
 release = version
 
-html_title = project + " " + version
+#html_title = project
+html_logo = "_images/imprompt_logo.png"
 
 extensions = [
     'sphinx_tabs.tabs',

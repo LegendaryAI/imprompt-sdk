@@ -24,12 +24,23 @@ Your can use your personal agent to perform following tasks:
 Create a new agent in Imprompt
 ===================================
 
+Imprompt users can create a personal agent or an organization agent. The organization agent can be used by all the members of the organization.
+
+
 .. image:: /_images/create_an_agent.gif
    :alt: Create an agent GIF
    :align: center
 
 Install a plugin to an agent
 ===================================
+
+You can increase capabilities of your agent by installing plugins. You can install plugins from the Imprompt plugin marketplace.
+Every agent comes default with these systems plugins:
+
+1. Imprompt Email
+2. Imprompt Web Scraper
+3. Imprompt Web Search
+4. Imprompt File Manager
 
 .. image:: /_images/install_a_plugin.gif
    :alt: Installing a plugin GIF
@@ -39,21 +50,17 @@ Install a plugin to an agent
 Upload a file to an agent
 ===================================
 
+You can provide your agent with text files to use as a data source. You can upload a file from your local machine or from a URL.
+
+We support the various input formats: txt, pdf, odt, doc, docx, rtf, url, mp3.
+
+Data preprocessing pipeline: Documents are broken into chunks, passed through the OpenAI embedding model, then stored in pinecone vector database.
+
+
+
 .. image:: /_images/upload_a_file_to_agent.gif
    :alt: Upload a file GIF
    :align: center
 
 
-Generate a workflow from an assignment
-=======================================
 
-.. image:: /_images/generate_a_workflow.gif
-   :alt: Generate a workflow GIF
-   :align: center
-
-Run a workflow
-=======================================
-
-.. image:: /_images/run_a_workflow.gif
-   :alt: Run a workflow GIF
-   :align: center
