@@ -19,11 +19,18 @@ System plugins are created and maintained by the Imprompt. All agents have acces
 4. Imprompt Web Search: Plugin to do web search.
 
 
-Create an Openplugin from OpenAPI specification.
+Create an OpenPlugin from OpenAPI specification.
 ===================================================
 
-Create an Openplugin from OpenAI plugin manifest.
+Coming Soon!
+
+Create an OpenPlugin from OpenAI plugin manifest.
 ===================================================
+
+Coming Soon!
 
 Test a plugin
 ================
+
+Coming Soon!
+
