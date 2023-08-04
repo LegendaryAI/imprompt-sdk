@@ -1,5 +1,5 @@
 ================================
-Create a new plugin from scratch
+Create a New Plugin
 ================================
 
 Imprompt enables you to create new plugins, import them into an `OpenPlugin Manifest <https://openplugin.org/plugin_developers/openplugin_manifest.html>`_,
@@ -44,6 +44,7 @@ All we need to get started is the `OpenAPI document <https://swagger.io/specific
    :align: center
 
 .. raw:: html
+
    <br/>
 
 You have the option to enable/disable operations from your OpenAPI document. In this case, we only have one
@@ -55,3 +56,17 @@ Edit & Save OpenPlugin Manifest
 After we have imported our plugin, it will produce us with a starter `OpenPlugin Manifest <https://openplugin.org/plugin_developers/openplugin_manifest.html>`_.
 We will need to edit this manifest to include more information about our plugin, such a description, logo, operation examples,
 and operation helpers.
+
+.. image:: /_images/tutorial_new_plugin/edit_manifest.gif
+   :alt: Edit OpenPlugin Manifest
+   :align: center
+
+
+Try Plugin
+==========
+
+Now we can try our plugin in `Imprompt <https://app.imprompt.ai/plugins>`_!
+
+.. image:: /_images/tutorial_new_plugin/try_plugin.gif
+   :alt: Try Plugin
+   :align: center
