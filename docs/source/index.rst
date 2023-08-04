@@ -13,6 +13,7 @@ Documentation
     llm_gateway/index
     opensource_projects/index
     sdk/index
+    tutorials/index
 
 
 .. important::
