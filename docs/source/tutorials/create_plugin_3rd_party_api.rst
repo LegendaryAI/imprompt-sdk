@@ -62,8 +62,12 @@ Edit & Save OpenPlugin Manifest
 ===============================
 
 After we have imported our plugin, it will produce us with a starter `OpenPlugin Manifest <https://openplugin.org/plugin_developers/openplugin_manifest.html>`_.
-We will need to edit this manifest to include more information about our plugin, such a description, logo, operation examples,
-and operation helpers.
+We will need to edit this manifest to include more information about our plugin, such a description, logo, etc.
+I will add ``human_usage_examples`` to give the user an idea of how to use the plugin. I will also add
+``plugin_signature_helpers`` to assist the LLM in using the plugin and assigning the correct values to the
+operation. Lastly, I will add ``plugin_cleanup_helpers`` to assist the LLM in cleaning up the response from the
+API operation. To learn more about these fields, please visit the `OpenPlugin Manifest <https://openplugin.org/plugin_developers/openplugin_manifest.html>`_
+docs.
 
 .. image:: /_images/tutorial_new_plugin/edit_manifest.gif
    :alt: Edit OpenPlugin Manifest
