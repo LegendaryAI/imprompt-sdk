@@ -17,15 +17,20 @@ Types of Marketplaces
 The Imprompt Public Marketplace is a centralized repository of assets, plugins, and flows that are available to all Imprompt users. A customer can share its assets, plugins, and flows with the public marketplace, making them available to all Imprompt users.
 
 
-**2. Internal Marketplace**
+**2. Internal Organization Marketplace**
 
 
-An internal marketplace allows an organization to share, discover, and utilize various assets, plugins, and flows. It operates within the organization's private network and is accessible only to its employees or authorized members.
+An internal org marketplace allows an organization to share, discover, and utilize various assets, plugins, and flows. It operates within the organization's private network and is accessible only to its employees or authorized members.
 
 
-**3. External Marketplace**
+**3. External Organization Marketplace**
 
-An external marketplace allows an organizations to extend their collaborative efforts beyond internal boundaries. It serves as a bridge to share assets, plugins, and workflows with external partners, clients, and developers, fostering a wider ecosystem of knowledge exchange and cooperation.
+An external org marketplace allows an organizations to extend their collaborative efforts beyond internal boundaries. It serves as a bridge to share assets, plugins, and workflows with external partners, clients, and developers, fostering a wider ecosystem of knowledge exchange and cooperation.
+
+**4. User Marketplace**
+
+An user marketplace allows a user to share, discover, and utilize various assets, plugins, and flows.
+
 
 Internal Marketplace Access
 ==============================
@@ -39,3 +44,9 @@ An internal marketplace admin can grant access to users based on their roles and
 **User Access** Users with standard user access can browse the marketplace, search for assets, and utilize the available resources. They can access assets contributed by others and use them for their projects or initiatives. However, they do not have the ability to manage or modify assets within the marketplace.
 
 **Developer Access** Some internal marketplaces may have a developer role, which grants users the ability to contribute assets to the marketplace. Users with developer access can add new plugins, workflows, or other resources, making them available for others to use.
+
+
+Customer Onboarding
+==============================
+
+Whenever a new user is created, we automatically create a user, internal_org, and external_org marketplace with a default catalog.

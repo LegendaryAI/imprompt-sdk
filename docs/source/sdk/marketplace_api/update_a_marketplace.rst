@@ -45,7 +45,7 @@ These parameters are used to configure the API request. The API request body is 
      - The name of the marketplace.
    * - publish_level
      - string
-     - Accepted values: internal_org, external_org
+     - Accepted values: internal_org, external_org, user
    * - description
      - string
      - The description of the marketplace.
