@@ -8,11 +8,73 @@ What is a flow?
 ============================
 A flow is a sequence of tasks that are executed in a specific order to achieve a particular goal or objective. It represents a series of steps that need to be performed to complete a larger process or solve a problem. Each task in the workflow can be dependent on the output of the previous task and may require specific inputs to execute successfully.
 
+What is a tagged data in a flow?
+=================================
+
+In a workflow, tagged data refers to information or files that have been labeled or marked with specific metadata for easy identification and reference throughout the workflow. It's akin to using global variables that can be accessed and utilized consistently across different stages or steps of the workflow.
+
+Examples:
+
+1. Metadata: #email=shrikant@brandops.io
+    This can be referenced in any task in the workflow. For example, if you want to send an email to this tagged email id, you can use the tagged data as follows:
+
+    ```
+    Send an email with text Hello World to #email
+    ```
+
+2. File: #demo.txt=https://imprompt-files.s3.amazonaws.com/demo.txt
+    This can be referenced in any task in the workflow. For example, if you want to read the contents of the file, you can use the tagged data as follows:
+
+    ```
+    Get content from the file #demo.txt
+    ```
+
+**How to add a tagged data in a flow?**
+
+The setup section of the workflow editor has option to either add a metadata or a file.
+
+NOTE: When a new workflow is created from an assignment, the tagged data from the assignment is automatically added to the workflow.
+
+
+What are plugins in a flow?
+=================================
+
+A plugin is a component that can be installed on an agent to extend its capabilities. It can be used to perform specific tasks or operations that are not natively supported by the agent. Plugins can be installed from the plugin store.
+
+Each workflows can achieve its goal by using a combination of LLM tasks and plugin tasks. For example, a workflow can use LLM tasks to generate text and plugin tasks to send emails or make API calls.
+
+
+**How to install a plugin to an agent?**
+
+    Go to Setup > Plugins > Marketplace and install the plugin to an agent. A workflow can use the plugin only if it is installed on the agent. For example, if you want to create a workflow that can send an email then you have to install the email plugin to the agent.
+
+**How do you give an access to a plugin**
+
+    You don't need to give the access for a no-authentication plugin. For a user-authentication plugin, you need to provide the credentials to access the plugin. It's an API key for user and service level authentication plugins, username and password for basic authentication plugins and you have to do oauth authentication for oauth plugins.
+
+
+**NOTE:**  You can see the tagged data and plugins in the setup section of the workflow editor.
+
+
+.. image:: /_images/tagged_data.png
+   :alt: Tagged data GIF
+   :align: center
+
+
 What is a task?
 ============================
 
 A task is an individual unit of work within a workflow. It represents a specific action or operation that an agent can perform. Tasks can vary in complexity and can be anything from simple calculations or data manipulations to more complex actions such as running machine learning models or interacting with external systems. Each task is designed to achieve a specific sub-goal within the larger workflow.
-A task can be completed by either using a LLM or a plugin.
+
+A task can be of the following types:
+
+1. **LLM task**
+
+    An LLM task is a task that is completed by using a LLM.
+
+2. **Plugin task**
+
+    A plugin task is a task that is completed by using a plugin. To use a plugin, you need to install it first. You can install a plugin from the plugin store.
 
 Handling task outputs
 =============================
