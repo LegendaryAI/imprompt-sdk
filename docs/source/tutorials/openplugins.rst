@@ -23,9 +23,9 @@ The OpenPlugin document is your primary means for modifying your plugin. It is a
 From the app homepage, select "Builders" from the menu and choose the Plugin Builder option. This will bring you to the Plugin Builder page. To begin creating your new plugin, click the New Plugin button and use the modal to generate your plugin.
 
 You have three options for generating your plugin:
-#. Paste API documentation
-#. Create from a Swagger URL or file 
-#. Create from the ChatGPT Plugin Manifest file 
+* Paste API documentation
+* Create from a Swagger URL or file 
+* Create from the ChatGPT Plugin Manifest file 
 
 Paste API Documentation 
 -----------------------
@@ -206,13 +206,21 @@ Prior to publication, you can choose to manage the catalogs your plugin appears 
 
 When you are ready to share, click the Publish Plugin button. You will be presented with a modal to designate marketplaces and catalogs for publication. From this modal, you can use the Publish button to complete publication.
 
-.. TODO
+
+
 Monitor Success Rates
 =====================
-  *OpenPlugin will not know the intent of a user's prompt, hence, it's impossible to know if the call 'succeed as intended'. However, OpenPlugin is able to determine if the API was properly called (HTTP 200), which will indicate if the API succeeded and a valid set of calling parameters were used.*
+..
+  - confirm there isn't an additional creator-display for this beyond the plugin builder homescreen
+..
+
+Though OpenPlugin can't interpret the intent of a user's prompt, the Plugin Builder homepage displays high-level stats showing how frequently your plugin makes successful API calls (meaning an HTTP 200 response was received). These stats are presented for the past 24 hours and the past 30 days.
 
 
 .. TODO
 Scale Servers
 =============
   *OpenPlugin was designed as a stateless service. This allows it be be horizontally scaled. Typically, your OpenPlugin hosting provider takes on the responsibility of auto-scaling.*
+..
+  - need more info
+..
