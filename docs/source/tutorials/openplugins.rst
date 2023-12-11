@@ -1,22 +1,15 @@
 ==============================
-Building & Running Openplugins
+Building & Running OpenPlugins
 ==============================
 
-.. TO DO
-  .. add pics
-
-.. CONFIRM
-  .. house rules for "OpenPlugin" vs "Openplugin" vs "openplugin" vs "plugin"
-
-This tutorial describes the steps to build, test, share, and monitor your Openplugins. 
+This tutorial describes the steps to build, test, share, and monitor your OpenPlugins. 
 
 It assumes you are comfortable with REST APIs and Swagger documentation. It also assumes you are familiar with large language models (LLMs) such as ChatGPT. Most importantly, it assumes that you understand the API that your plugin calls. It is highly recommended that you test your desired endpoints using a tool such as Postman before attempting to build a plugin.
 
   *For brevity and to avoid confusion with OpenAI, this tutorial uses the term "Swagger" even when referring to the OpenAPI specification.*
 
 
-
-Generate an Openplugin
+Generate an OpenPlugin
 ======================
 The OpenPlugin document is your primary means for modifying your plugin. It is a JSON document which contains essential documentation about your plugin, as well as configuration for mapping natural language to API calls.
 
@@ -37,13 +30,13 @@ You have three options for generating your plugin:
 
 Paste API Documentation 
 -----------------------
-You can copy and paste API documentation into the text box to generate both a Swagger document and an Openplugin document for the API. You can optionally provide instructions to help the LLM more accurately interpret the provided text.
+You can copy and paste API documentation into the text box to generate both a Swagger document and an OpenPlugin document for the API. You can optionally provide instructions to help the LLM more accurately interpret the provided text.
   
   *If the LLM cannot generate your plugin from the provided documentation, try reducing the number of documented endpoints. You can always add more operations after your plugin has been generated. Revising the text input's formatting may also help the LLM understand the API.*
 
 Create from a Swagger URL or file
 ---------------------------------
-You may be able to find a Swagger document for your desired API online. You can provide a URL or upload a local file to generate an Openplugin document.
+You may be able to find a Swagger document for your desired API online. You can provide a URL or upload a local file to generate an OpenPlugin document.
 
 Create from the ChatGPT Plugin Manifest file
 --------------------------------------------
@@ -147,6 +140,7 @@ You can provide multiple sample prompts by pressing return after entering each e
 
    <br/>
 
+
 Tailor the API Call
 ===================
 More often than not, plugins will need tailoring in order to work properly. You can use the Signature Helpers form in the *Operations* tab to help your plugin convert user prompts into successful API calls. Signature helpers are assigned on a per-endpoint basis. If your plugin has multiple endpoints, you can provide specific helpers for each endpoint. 
@@ -162,6 +156,7 @@ Signature helpers can helpful for matching phrases to parameters, providing defa
 .. raw:: html
 
    <br/>
+
 
 Customize the API's Response
 ============================
@@ -209,6 +204,7 @@ You can click the AI Generate button to automatically generate the primary docum
 .. raw:: html
 
    <br/>
+
 
 Write Some Tests
 ================
@@ -270,6 +266,7 @@ You can share your plugin with your team at any time from the *Share* tab. Use t
 
    <br/>
 
+
 Publish to Catalogs
 =====================
 When you are ready to publish your plugin, you can publish it from the *Share* tab by navigating to the *Publish* subtab. Plugins can be published to any combination of the following places:
@@ -283,10 +280,10 @@ Prior to publication, you can choose to manage the catalogs your plugin appears 
 When you are ready to share, click the Publish Plugin button. You will be presented with a modal to designate marketplaces and catalogs for publication. From this modal, you can use the Publish button to complete publication.
 
 
-
 Monitor Success Rates
 =====================
 Though OpenPlugin can't interpret the intent of a user's prompt, the Plugin Builder homepage displays high-level stats showing how frequently your plugin makes successful API calls (meaning an HTTP 200 response was received). These stats are presented for the past 24 hours and the past 30 days.
+
 .. image:: /_images/tutorial_new_plugin_dec23/monitor.png
   :alt: Screenshot of the plugin monitoring page
   :align: center 
