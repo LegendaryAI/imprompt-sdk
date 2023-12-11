@@ -27,6 +27,14 @@ You have three options for generating your plugin:
 * Create from a Swagger URL or file 
 * Create from the ChatGPT Plugin Manifest file 
 
+.. image:: /_images/tutorial_new_plugin_dec23/generate_plugin.png
+  :alt: Screenshot of the plugin generation modal
+  :align: center 
+
+.. raw:: html
+
+   <br/>
+
 Paste API Documentation 
 -----------------------
 You can copy and paste API documentation into the text box to generate both a Swagger document and an Openplugin document for the API. You can optionally provide instructions to help the LLM more accurately interpret the provided text.
@@ -39,21 +47,26 @@ You may be able to find a Swagger document for your desired API online. You can 
 
 Create from the ChatGPT Plugin Manifest file
 --------------------------------------------
-..
-  - (12-06-23) current list: Expedia, FiscalNote, Instacart, KAYAK, Klarna, Milo, OpenTable, Shopify, Slack, Speak, Wolfram, and Zapier
-..
 ChatGPT Plugin Manifest files will be available for APIs which have already built plugins on the OpenAI platform. You can provide a url to the manifest or upload a local file to generate your plugin.
 
-**Further Reading**
+.. note:: 
+  More on ChatGPT plugins: 
 
-`ChatGPT Plugins <https://openai.com/blog/chatgpt-plugins/>`_
-
-`OpenAI documentation <https://platform.openai.com/docs/plugins/getting-started/plugin-manifest/>`_
+  * `ChatGPT Plugins <https://openai.com/blog/chatgpt-plugins/>`_
+  * `OpenAI documentation <https://platform.openai.com/docs/plugins/getting-started/plugin-manifest/>`_
 
 
 Give it a description
 =====================
 After your plugin has been generated, you can use fields in the *Plugin* tab to provide information about your plugin. 
+
+.. image:: /_images/tutorial_new_plugin_dec23/description.png
+  :alt: Screenshot of the plugin description page
+  :align: center 
+
+.. raw:: html
+
+   <br/>
 
 Name: The name of your plugin. This is the title other users will see when they search for your plugin.
 
@@ -82,6 +95,14 @@ OAuth
 -----
 OAuth allows users to access the API through their existing account with the API provider. You will need to provide a redirect URI when setting up OAuth with the API provider so the user will be redirected to OpenPlugin after logging in with the API provider.
 
+.. image:: /_images/tutorial_new_plugin_dec23/auth_oauth.png
+  :alt: Screenshot of the OAuth modal
+  :align: center 
+
+.. raw:: html
+
+   <br/>
+
 Additionally, you will need to provide the following information about the API provider:
 
 * Client ID
@@ -100,8 +121,11 @@ Service and user-level authentication are set up identically, but they function 
 
   If you are uncertain which option to choose, it is user-level authentication is recommended. Allowing any user to access the API through a single API key could result in rate limiting or potentially significant charges to your account with the API provider. Members of an organization can share a single user-level key through their *Organization* settings.
 
-Options for providing an API key include:
+.. image:: /_images/tutorial_new_plugin_dec23/auth_user.png
+  :alt: Screenshot of the user auth modal
+  :align: center 
 
+Options for providing an API key include:
 * Bearer: Provide a bearer token to be used as the API key
 * Basic: Provide a username and password to be used as the API key
 * Query Parameter: Provide an access token which will be delivered to the API as a query parameter. You will also need to provide the name of the query parameter if this option is selected.
@@ -110,11 +134,18 @@ Service-level authentication will require you to provide credentials with your s
 
 
 Provide Sample Prompts
-====================
+======================
 You can provide human usage examples from the *Operations* tab. These examples provide sample prompts which users can try out when exploring your plugin. Sample prompts help users understand the types of prompts your plugin will respond to, and will allow them to quickly see the kinds of responses your plugin provides.
 
 You can provide multiple sample prompts by pressing return after entering each example. You may also edit existing examples, or test them from the *Operations* tab by clicking the play button next to each example. Sample prompts are submitted on a per-endpoint basis, so you can provide different examples for each endpoint in your plugin. Users will be able to see all examples when they are using your plugin, regardless of their corresponding endpoint.
 
+.. image:: /_images/tutorial_new_plugin_dec23/sample_prompts.png
+  :alt: Screenshot of the human usage examples for a plugin
+  :align: center 
+
+.. raw:: html
+
+   <br/>
 
 Tailor the API Call
 ===================
@@ -124,6 +155,13 @@ Signature helpers can helpful for matching phrases to parameters, providing defa
 
   When writing signature helpers, you can use *#PROMPT* to reference the user prompt.
 
+.. image:: /_images/tutorial_new_plugin_dec23/signature_helpers.png
+  :alt: Screenshot of the plugin signature helpers section
+  :align: center 
+
+.. raw:: html
+
+   <br/>
 
 Customize the API's Response
 ============================
@@ -164,6 +202,13 @@ You can click the AI Generate button to automatically generate the primary docum
 
   Remember to save changes to your documentation by clicking the Save button.
 
+.. image:: /_images/tutorial_new_plugin_dec23/documentation.png
+  :alt: Screenshot of the plugin document page
+  :align: center 
+
+.. raw:: html
+
+   <br/>
 
 Write Some Tests
 ================
@@ -172,9 +217,33 @@ Thorough testing ensures plugins reach the marketplace ready for users. You can 
 The *Test Plan* subtab lets you configure your testing environment. You can select different strategies and LLMs to test your plugin against to determine which environments garner the best results. Testing more strategies and LLMs at a time will slow down results, but will give you side-by-side information about how successful your plugin is with each tool. The banner at the top of the tab will keep track of how many permutations will run in your current configuration.
 .. languages // currently locked and I have no formal info on it
 
+.. image:: /_images/tutorial_new_plugin_dec23/test_plan.png
+  :alt: Screenshot of the plugin test plan page
+  :align: center 
+
+  .. raw:: html
+
+   <br/>
+
 You can generate your test cases from the *Test Cases* tab. You can use the Generate button to have the LLM quickly produce a batch of tests. You can generate test cases for all of your plugin's operations, or for a specific operation. You can also configure which LLM is prompted to generate the tests, whether the results should include expected parameters for each prompt, the number of test cases to generate, and whether the newly generated cases should replace any existing test cases. You can also provide instructions to improve the accuracy and realism of the LLM's output.
 
+.. image:: /_images/tutorial_new_plugin_dec23/test_generate.png
+  :alt: Screenshot of the plugin generation modal
+  :align: center 
+
+  .. raw:: html
+
+   <br/>
+
 Once your test cases are generated, they will appear below the Generate Test Cases button. For each case, you should review the parameters that you expect the LLM to send to the API. These parameters are what your plugin will be tested against.
+
+.. image:: /_images/tutorial_new_plugin_dec23/test_cases.png
+  :alt: Screenshot of generated plugin test cases
+  :align: center 
+
+  .. raw:: html
+
+   <br/>
 
 After your plugin is published, you should also test actual end user data. Any user prompts used in testing should be thoroughly cleaned.
 
@@ -193,6 +262,13 @@ Share with Team Members
 =======================
 You can share your plugin with your team at any time from the *Share* tab. Use the *Team* subtab and toggle the access settings for team members to update their access settings.
 
+.. image:: /_images/tutorial_new_plugin_dec23/share_team.png
+  :alt: Screenshot of the screen to share a plugin with your team
+  :align: center 
+
+.. raw:: html
+
+   <br/>
 
 Publish to Catalogs
 =====================
@@ -210,17 +286,16 @@ When you are ready to share, click the Publish Plugin button. You will be presen
 
 Monitor Success Rates
 =====================
-..
-  - confirm there isn't an additional creator-display for this beyond the plugin builder homescreen
-..
-
 Though OpenPlugin can't interpret the intent of a user's prompt, the Plugin Builder homepage displays high-level stats showing how frequently your plugin makes successful API calls (meaning an HTTP 200 response was received). These stats are presented for the past 24 hours and the past 30 days.
+.. image:: /_images/tutorial_new_plugin_dec23/monitor.png
+  :alt: Screenshot of the plugin monitoring page
+  :align: center 
+
+.. raw:: html
+
+   <br/>
 
 
-.. TODO
 Scale Servers
 =============
   *OpenPlugin was designed as a stateless service. This allows it be be horizontally scaled. Typically, your OpenPlugin hosting provider takes on the responsibility of auto-scaling.*
-..
-  - need more info
-..
