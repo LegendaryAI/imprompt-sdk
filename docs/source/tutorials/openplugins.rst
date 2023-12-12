@@ -16,6 +16,7 @@ The OpenPlugin document is your primary means for modifying your plugin. It is a
 From the app homepage, select "Builders" from the menu and choose the Plugin Builder option. This will bring you to the Plugin Builder page. To begin creating your new plugin, click the New Plugin button and use the modal to generate your plugin.
 
 You have three options for generating your plugin:
+
 * Paste API documentation
 * Create from a Swagger URL or file 
 * Create from the ChatGPT Plugin Manifest file 
@@ -118,6 +119,10 @@ Service and user-level authentication are set up identically, but they function 
   :alt: Screenshot of the user auth modal
   :align: center 
 
+.. raw:: html
+
+  <br/>
+
 Options for providing an API key include:
 * Bearer: Provide a bearer token to be used as the API key
 * Basic: Provide a username and password to be used as the API key
@@ -160,9 +165,23 @@ Signature helpers can helpful for matching phrases to parameters, providing defa
 
 Customize the API's Response
 ============================
-Without customized formatting, API responses will arrive as JSON objects. You can improve the response presentation from the *Operations* tab by selecting the *API Response* subtab.
+Without customized formatting, API responses will arrive as JSON objects. Look at this example from the You.com Search plugin:
 
-  You can test your plugin's response formatting directly from the Operations page by clicking the Try button under the *API Response* tab. You will only be able to do this after running a human usage example from the top of the page.
+.. image:: /_images/tutorial_new_plugin_dec23/api_response.png
+  :alt: Screenshot of the API response object
+  :align: center 
+
+.. raw:: html
+
+  <br/>
+
+OpenPlugin allows you to format this response so you can present the pertinent information from the API, and users can receive more readable results.
+
+You can test your plugin's response formatting directly from the Operations page by clicking the Try button under the *API Response* tab. You will only be able to do this after running a human usage example from the top of the page. There are three options for formatting responses:
+
+* Post-call evaluators 
+* Markup template (JSX or Jinja)
+* Plugin cleanup helpers
 
 Post-Call Evaluators
 --------------------
@@ -171,9 +190,38 @@ Post-call evaluators can be used to help the LLM understand whether an API respo
 
 Press the return key or click the + button to add an evaluator to your plugin. Existing evaluators can be edited or deleted by clicking the buttons beside them.
 
-Jinja2 Template
----------------
-Jinja2 templates are a fast and flexible way to format API responses. They can render information in a straightforward format, or they can be written to render content programmatically.
+Formatting Templates
+--------------------
+You can format the API response object by writing a JSX template. Templates allows plugin developers to target specific properties from API responses and present better-looking results to plugin users. Openplugin offers two options for creating response templates:
+
+* JSX 
+* Jinja 
+
+You can reference the API response as :code:`response` in the formatting field. In the You.com Search example from above, we could referece the first value in the "hits" array with :code:`response.hits[0]`. The exact properties needed for a template will depend on the API being used. 
+
+JSX
+^^^
+JSX is a JavaScript extension commonly used in React components. If you are unfamiliar with JSX, you can learn more `here <https://react.dev/learn/writing-markup-with-jsx>`_. 
+
+Though JSX templates do not offer full scripting, they allow you to format your responses more programmatically than a markdown or HTML file would allow. For example, the following template maps through the "hits" array from the You.Com Search API response. 
+
+.. image:: /_images/tutorial_new_plugin_dec23/jsx_template.png
+  :alt: Screenshot of a JSX template for formatting an API response
+  :align: center 
+
+.. raw:: html
+
+  <br/>
+  
+.. note:: 
+  To prevent cross-site scripting (XSS) attacks, some typical JSX patterns will not work in the template editor.
+  
+
+
+
+Jinja
+^^^^^
+Jinja templates are a fast and flexible way to format API responses. They can render information in a straightforward format, or they can be written to render content programmatically.
 
 You can create your plugin's Jinja template automatically by providing a prompt and an output format, then clicking the Auto-Gen Template button. You can then edit the generated template to further format the API response. Alternatively, you can design your own template without generating one automatically.
 
@@ -217,9 +265,9 @@ The *Test Plan* subtab lets you configure your testing environment. You can sele
   :alt: Screenshot of the plugin test plan page
   :align: center 
 
-  .. raw:: html
+.. raw:: html
 
-   <br/>
+  <br/>
 
 You can generate your test cases from the *Test Cases* tab. You can use the Generate button to have the LLM quickly produce a batch of tests. You can generate test cases for all of your plugin's operations, or for a specific operation. You can also configure which LLM is prompted to generate the tests, whether the results should include expected parameters for each prompt, the number of test cases to generate, and whether the newly generated cases should replace any existing test cases. You can also provide instructions to improve the accuracy and realism of the LLM's output.
 
@@ -227,9 +275,9 @@ You can generate your test cases from the *Test Cases* tab. You can use the Gene
   :alt: Screenshot of the plugin generation modal
   :align: center 
 
-  .. raw:: html
+.. raw:: html
 
-   <br/>
+  <br/>
 
 Once your test cases are generated, they will appear below the Generate Test Cases button. For each case, you should review the parameters that you expect the LLM to send to the API. These parameters are what your plugin will be tested against.
 
@@ -237,9 +285,9 @@ Once your test cases are generated, they will appear below the Generate Test Cas
   :alt: Screenshot of generated plugin test cases
   :align: center 
 
-  .. raw:: html
+.. raw:: html
 
-   <br/>
+  <br/>
 
 After your plugin is published, you should also test actual end user data. Any user prompts used in testing should be thoroughly cleaned.
 
