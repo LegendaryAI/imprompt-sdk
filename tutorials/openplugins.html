@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Building &amp; Running OpenPlugins &#8212; Imprompt 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Create a Plugin from 3rd Party API" href="create_plugin_3rd_party_api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/imprompt_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/imprompt_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imprompt_suite/index.html">The Imprompt Suite</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chats_and_flows/index.html">Chat &amp; Flows</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chats_and_flows/prompts.html">Prompts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chats_and_flows/agents.html">Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chats_and_flows/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chats_and_flows/assignments.html">Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chats_and_flows/flows_and_tasks.html">Flows &amp; Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../marketplace/index.html">Marketplace</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../marketplace/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marketplace/catalog.html">Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marketplace/assets.html">Assets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../llm_gateway/index.html">LLM Gateway</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../opensource_projects/index.html">Open Source Projects</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../opensource_projects/openplugin.html">Openplugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opensource_projects/permutate.html">Permutate</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sdk/index.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/setup.html">Setup</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sdk/marketplace_api/index.html">Marketplace API</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/create_a_marketplace.html">Create a marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/get_marketplaces.html">Get all marketplaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/get_a_marketplace.html">Get a marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/update_a_marketplace.html">Update a marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/list_users_in_internal_marketplace.html">Get all users in an internal marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/add_user_access_to_internal_marketplace.html">Add user access to an internal marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/remove_user_access_from_internal_marketplace.html">Remove user access from an internal marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/modify_user_role_in_internal_marketplace.html">Modify a user role in an internal marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/get_all_catalogs_in_marketplace.html">Get all catalogs from a marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/get_a_catalog_from_a_marketplace.html">Get a catalog from a marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/add_a_catalog_to_marketplace.html">Add a catalog to a marketplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/modify_a_catalog.html">Modify a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/delete_a_catalog.html">Delete a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/list_all_plugins_in_a_catalog.html">List all plugins in a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/add_a_plugin_to_catalog.html">Add a plugin to a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/update_a_plugin_in_catalog.html">Update a plugin in a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/remove_a_plugin_from_catalog.html">Remove a plugin from catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/list_all_workflows_in_catalog.html">List all workflows in a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/add_a_workflow_to_catalog.html">Add a workflow to a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/update_a_workflow_in_a_catalog.html">Update a workflow in a catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/marketplace_api/remove_a_workflow_from_catalog.html">Remove a workflow from catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/LegendaryAI/openplugin">Github Repo</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_plugin_3rd_party_api.html">Create a Plugin from 3rd Party API</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Building &amp; Running OpenPlugins</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tutorials/openplugins.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Building & Running OpenPlugins</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-an-openplugin">Generate an OpenPlugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paste-api-documentation">Paste API Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-swagger-url-or-file">Create from a Swagger URL or file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-the-chatgpt-plugin-manifest-file">Create from the ChatGPT Plugin Manifest file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#give-it-a-description">Give it a description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-security">Set up Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oauth">OAuth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-level-user-level">Service Level &amp; User Level</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#provide-sample-prompts">Provide Sample Prompts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tailor-the-api-call">Tailor the API Call</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-the-api-s-response">Customize the API’s Response</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-call-evaluators">Post-Call Evaluators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-templates">Formatting Templates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jsx">JSX</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jinja">Jinja</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-cleanup-helper">Plugin Cleanup Helper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-your-plugin">Document Your Plugin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-some-tests">Write Some Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-tests">Run the Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#share-with-team-members">Share with Team Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-to-catalogs">Publish to Catalogs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitor-success-rates">Monitor Success Rates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-servers">Scale Servers</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="building-running-openplugins">
+<h1>Building &amp; Running OpenPlugins<a class="headerlink" href="#building-running-openplugins" title="Permalink to this heading">#</a></h1>
+<p>This tutorial describes the steps to build, test, share, and monitor your OpenPlugins.</p>
+<p>It assumes you are comfortable with REST APIs and Swagger documentation. It also assumes you are familiar with large language models (LLMs) such as ChatGPT. Most importantly, it assumes that you understand the API that your plugin calls. It is highly recommended that you test your desired endpoints using a tool such as Postman before attempting to build a plugin.</p>
+<blockquote>
+<div><p><em>For brevity and to avoid confusion with OpenAI, this tutorial uses the term “Swagger” even when referring to the OpenAPI specification.</em></p>
+</div></blockquote>
+<section id="generate-an-openplugin">
+<h2>Generate an OpenPlugin<a class="headerlink" href="#generate-an-openplugin" title="Permalink to this heading">#</a></h2>
+<p>The OpenPlugin document is your primary means for modifying your plugin. It is a JSON document which contains essential documentation about your plugin, as well as configuration for mapping natural language to API calls.</p>
+<p>From the app homepage, select “Builders” from the menu and choose the Plugin Builder option. This will bring you to the Plugin Builder page. To begin creating your new plugin, click the New Plugin button and use the modal to generate your plugin.</p>
+<p>You have three options for generating your plugin:</p>
+<ul class="simple">
+<li><p>Paste API documentation</p></li>
+<li><p>Create from a Swagger URL or file</p></li>
+<li><p>Create from the ChatGPT Plugin Manifest file</p></li>
+</ul>
+<img alt="Screenshot of the plugin generation modal" class="align-center" src="../_images/generate_plugin.png" />
+<br/><section id="paste-api-documentation">
+<h3>Paste API Documentation<a class="headerlink" href="#paste-api-documentation" title="Permalink to this heading">#</a></h3>
+<p>You can copy and paste API documentation into the text box to generate both a Swagger document and an OpenPlugin document for the API. You can optionally provide instructions to help the LLM more accurately interpret the provided text.</p>
+<blockquote>
+<div><p><em>If the LLM cannot generate your plugin from the provided documentation, try reducing the number of documented endpoints. You can always add more operations after your plugin has been generated. Revising the text input’s formatting may also help the LLM understand the API.</em></p>
+</div></blockquote>
+</section>
+<section id="create-from-a-swagger-url-or-file">
+<h3>Create from a Swagger URL or file<a class="headerlink" href="#create-from-a-swagger-url-or-file" title="Permalink to this heading">#</a></h3>
+<p>You may be able to find a Swagger document for your desired API online. You can provide a URL or upload a local file to generate an OpenPlugin document.</p>
+</section>
+<section id="create-from-the-chatgpt-plugin-manifest-file">
+<h3>Create from the ChatGPT Plugin Manifest file<a class="headerlink" href="#create-from-the-chatgpt-plugin-manifest-file" title="Permalink to this heading">#</a></h3>
+<p>ChatGPT Plugin Manifest files will be available for APIs which have already built plugins on the OpenAI platform. You can provide a url to the manifest or upload a local file to generate your plugin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More on ChatGPT plugins:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://openai.com/blog/chatgpt-plugins/">ChatGPT Plugins</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/docs/plugins/getting-started/plugin-manifest/">OpenAI documentation</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="give-it-a-description">
+<h2>Give it a description<a class="headerlink" href="#give-it-a-description" title="Permalink to this heading">#</a></h2>
+<p>After your plugin has been generated, you can use fields in the <em>Plugin</em> tab to provide information about your plugin.</p>
+<img alt="Screenshot of the plugin description page" class="align-center" src="../_images/description.png" />
+<br/><p>Name: The name of your plugin. This is the title other users will see when they search for your plugin.</p>
+<p>Description: A short description of your plugin. This will help users understand what your plugin does.</p>
+<p>Logo URL: A URL to an image to display for your plugin.</p>
+<p>Contact Email: An email address for users to contact when they have questions about your plugin.</p>
+<p>Legal Info URL: A URL to a page with legal information about your plugin.</p>
+<p>Plugin Selector Helpers: Use cases for your pluging. This will help the LLM select your plugin more accurately. You can provide multiple use cases by pressing return or the + button after each helper.</p>
+</section>
+<section id="set-up-security">
+<h2>Set up Security<a class="headerlink" href="#set-up-security" title="Permalink to this heading">#</a></h2>
+<p>If your plugin requires authentication, you can set up security by clicking the Auth button in the <em>Plugin</em> tab. You can also set up authentication settings directly in the Swagger document (which you can find in the <em>OpenAPI (Swagger)</em> tab).</p>
+<p>Clicking the Auth button will open a modal where you can select the type of Authentication your plugin requires. You can choose from the following options:</p>
+<ol class="arabic simple">
+<li><p>OAuth</p></li>
+<li><p>Service Level</p></li>
+<li><p>User Level</p></li>
+</ol>
+<section id="oauth">
+<h3>OAuth<a class="headerlink" href="#oauth" title="Permalink to this heading">#</a></h3>
+<p>OAuth allows users to access the API through their existing account with the API provider. You will need to provide a redirect URI when setting up OAuth with the API provider so the user will be redirected to OpenPlugin after logging in with the API provider.</p>
+<img alt="Screenshot of the OAuth modal" class="align-center" src="../_images/auth_oauth.png" />
+<br/><p>Additionally, you will need to provide the following information about the API provider:</p>
+<ul class="simple">
+<li><p>Client ID</p></li>
+<li><p>Client Secret</p></li>
+<li><p>Client URL</p></li>
+<li><p>Scope</p></li>
+<li><p>Authorization URL</p></li>
+<li><p>Authorization Content Type</p></li>
+<li><p>Token Validation URL</p></li>
+</ul>
+<p>This information will be provided by the API provider, who should also be able to provide detailed instructions for setting up OAuth with their API.</p>
+</section>
+<section id="service-level-user-level">
+<h3>Service Level &amp; User Level<a class="headerlink" href="#service-level-user-level" title="Permalink to this heading">#</a></h3>
+<p>Service and user-level authentication are set up identically, but they function differently. Service level authentication allows you to provide a single API key for all users of your plugin, while user-level authentication allows you to provide a unique API key for each user of your plugin.</p>
+<blockquote>
+<div><p>If you are uncertain which option to choose, it is user-level authentication is recommended. Allowing any user to access the API through a single API key could result in rate limiting or potentially significant charges to your account with the API provider. Members of an organization can share a single user-level key through their <em>Organization</em> settings.</p>
+</div></blockquote>
+<img alt="Screenshot of the user auth modal" class="align-center" src="../_images/auth_user.png" />
+<br/><p>Options for providing an API key include:
+* Bearer: Provide a bearer token to be used as the API key
+* Basic: Provide a username and password to be used as the API key
+* Query Parameter: Provide an access token which will be delivered to the API as a query parameter. You will also need to provide the name of the query parameter if this option is selected.</p>
+<p>Service-level authentication will require you to provide credentials with your selection, while user-level authentication will prompt the user to provide credentials when they use your plugin.</p>
+</section>
+</section>
+<section id="provide-sample-prompts">
+<h2>Provide Sample Prompts<a class="headerlink" href="#provide-sample-prompts" title="Permalink to this heading">#</a></h2>
+<p>You can provide human usage examples from the <em>Operations</em> tab. These examples provide sample prompts which users can try out when exploring your plugin. Sample prompts help users understand the types of prompts your plugin will respond to, and will allow them to quickly see the kinds of responses your plugin provides.</p>
+<p>You can provide multiple sample prompts by pressing return after entering each example. You may also edit existing examples, or test them from the <em>Operations</em> tab by clicking the play button next to each example. Sample prompts are submitted on a per-endpoint basis, so you can provide different examples for each endpoint in your plugin. Users will be able to see all examples when they are using your plugin, regardless of their corresponding endpoint.</p>
+<img alt="Screenshot of the human usage examples for a plugin" class="align-center" src="../_images/sample_prompts.png" />
+<br/></section>
+<section id="tailor-the-api-call">
+<h2>Tailor the API Call<a class="headerlink" href="#tailor-the-api-call" title="Permalink to this heading">#</a></h2>
+<p>More often than not, plugins will need tailoring in order to work properly. You can use the Signature Helpers form in the <em>Operations</em> tab to help your plugin convert user prompts into successful API calls. Signature helpers are assigned on a per-endpoint basis. If your plugin has multiple endpoints, you can provide specific helpers for each endpoint.</p>
+<p>Signature helpers can helpful for matching phrases to parameters, providing default values, and overriding the LLM’s assumptions about the API call. You can provide multiple signature helpers by pressing return after each helper. You can also edit existing helpers, or test them from the <em>Operations</em> tab by clicking the play button next to each helper.</p>
+<blockquote>
+<div><p>When writing signature helpers, you can use <em>#PROMPT</em> to reference the user prompt.</p>
+</div></blockquote>
+<img alt="Screenshot of the plugin signature helpers section" class="align-center" src="../_images/signature_helpers.png" />
+<br/></section>
+<section id="customize-the-api-s-response">
+<h2>Customize the API’s Response<a class="headerlink" href="#customize-the-api-s-response" title="Permalink to this heading">#</a></h2>
+<p>Without customized formatting, API responses will arrive as JSON objects. Look at this example from the You.com Search plugin:</p>
+<img alt="Screenshot of the API response object" class="align-center" src="../_images/api_response.png" />
+<br/><p>OpenPlugin allows you to format this response so you can present the pertinent information from the API, and users can receive more readable results.</p>
+<p>You can test your plugin’s response formatting directly from the Operations page by clicking the Try button under the <em>API Response</em> tab. You will only be able to do this after running a human usage example from the top of the page. There are three options for formatting responses:</p>
+<ul class="simple">
+<li><p>Post-call evaluators</p></li>
+<li><p>Markup template (JSX or Jinja)</p></li>
+<li><p>Plugin cleanup helpers</p></li>
+</ul>
+<section id="post-call-evaluators">
+<h3>Post-Call Evaluators<a class="headerlink" href="#post-call-evaluators" title="Permalink to this heading">#</a></h3>
+<dl class="simple">
+<dt>Post-call evaluators can be used to help the LLM understand whether an API response is valid, and how it should handle invalid responses.</dt><dd><p>Example: If you want to return a “No results found” message to the user when an API response property contains an empty array, you can use a post-call evaluator to provide this instruction to the LLM.</p>
+</dd>
+</dl>
+<p>Press the return key or click the + button to add an evaluator to your plugin. Existing evaluators can be edited or deleted by clicking the buttons beside them.</p>
+</section>
+<section id="formatting-templates">
+<h3>Formatting Templates<a class="headerlink" href="#formatting-templates" title="Permalink to this heading">#</a></h3>
+<p>You can format the API response object by writing a JSX template. Templates allows plugin developers to target specific properties from API responses and present better-looking results to plugin users. Openplugin offers two options for creating response templates:</p>
+<ul class="simple">
+<li><p>JSX</p></li>
+<li><p>Jinja</p></li>
+</ul>
+<p>You can reference the API response as <code class="code docutils literal notranslate"><span class="pre">response</span></code> in the formatting field. In the You.com Search example from above, we could referece the first value in the “hits” array with <code class="code docutils literal notranslate"><span class="pre">response.hits[0]</span></code>. The exact properties needed for a template will depend on the API being used.</p>
+<section id="jsx">
+<h4>JSX<a class="headerlink" href="#jsx" title="Permalink to this heading">#</a></h4>
+<p>JSX is a JavaScript extension commonly used in React components. If you are unfamiliar with JSX, you can learn more <a class="reference external" href="https://react.dev/learn/writing-markup-with-jsx">here</a>.</p>
+<p>Though JSX templates do not offer full scripting, they allow you to format your responses more programmatically than a markdown or HTML file would allow. For example, the following template maps through the “hits” array from the You.Com Search API response.</p>
+<img alt="Screenshot of a JSX template for formatting an API response" class="align-center" src="../_images/jsx_template.png" />
+<br/><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To prevent cross-site scripting (XSS) attacks, some typical JSX patterns will not work in the template editor.</p>
+</div>
+</section>
+<section id="jinja">
+<h4>Jinja<a class="headerlink" href="#jinja" title="Permalink to this heading">#</a></h4>
+<p>Jinja templates are a fast and flexible way to format API responses. They can render information in a straightforward format, or they can be written to render content programmatically.</p>
+<p>You can create your plugin’s Jinja template automatically by providing a prompt and an output format, then clicking the Auto-Gen Template button. You can then edit the generated template to further format the API response. Alternatively, you can design your own template without generating one automatically.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jinja2 templates are dependent upon the renderer used, which means some capabilities and syntaxes from documentation and tutorials may not work as expected. Always test your templates to confirm they render as intended.</p>
+</div>
+</section>
+</section>
+<section id="plugin-cleanup-helper">
+<h3>Plugin Cleanup Helper<a class="headerlink" href="#plugin-cleanup-helper" title="Permalink to this heading">#</a></h3>
+<p>Then plugin cleanup helper can be used as an alternative or supplement to a Jinja template. It takes a single natural-language instruction for formatting the API response.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Plugin cleanup helpers can significantly increase your plugin’s response time. It is recommended that you rely on Jinja templating whenever possible for best user experience.</p>
+</div>
+</section>
+</section>
+<section id="document-your-plugin">
+<h2>Document Your Plugin<a class="headerlink" href="#document-your-plugin" title="Permalink to this heading">#</a></h2>
+<p>Documentation will help users understand how to user your plugin. You can provide documentation from the <em>Share</em> tab by selecting the <em>Document</em> subtab. Your plugin’s primary document will be in markdown format, and you can provide images and videos so users can see your plugin at work.</p>
+<p>You can click the AI Generate button to automatically generate the primary document. Automatically generating the document will not prevent you from editing it further, but it will remove any previous content. These changes will not be saved until you click the Save button, so this is a safe operation.</p>
+<blockquote>
+<div><p>Remember to save changes to your documentation by clicking the Save button.</p>
+</div></blockquote>
+<img alt="Screenshot of the plugin document page" class="align-center" src="../_images/documentation.png" />
+<br/></section>
+<section id="write-some-tests">
+<h2>Write Some Tests<a class="headerlink" href="#write-some-tests" title="Permalink to this heading">#</a></h2>
+<p>Thorough testing ensures plugins reach the marketplace ready for users. You can quickly gather data about how your plugin responds to a series of realistic prompts, which can greatly accelerate the process of tailoring signature helpers. Tests are run independently for each of your plugin’s operations. Testing is done from the <em>Validate</em> tab of the plugin builder.</p>
+<p>The <em>Test Plan</em> subtab lets you configure your testing environment. You can select different strategies and LLMs to test your plugin against to determine which environments garner the best results. Testing more strategies and LLMs at a time will slow down results, but will give you side-by-side information about how successful your plugin is with each tool. The banner at the top of the tab will keep track of how many permutations will run in your current configuration.
+.. languages // currently locked and I have no formal info on it</p>
+<img alt="Screenshot of the plugin test plan page" class="align-center" src="../_images/test_plan.png" />
+<br/><p>You can generate your test cases from the <em>Test Cases</em> tab. You can use the Generate button to have the LLM quickly produce a batch of tests. You can generate test cases for all of your plugin’s operations, or for a specific operation. You can also configure which LLM is prompted to generate the tests, whether the results should include expected parameters for each prompt, the number of test cases to generate, and whether the newly generated cases should replace any existing test cases. You can also provide instructions to improve the accuracy and realism of the LLM’s output.</p>
+<img alt="Screenshot of the plugin generation modal" class="align-center" src="../_images/test_generate.png" />
+<br/><p>Once your test cases are generated, they will appear below the Generate Test Cases button. For each case, you should review the parameters that you expect the LLM to send to the API. These parameters are what your plugin will be tested against.</p>
+<img alt="Screenshot of generated plugin test cases" class="align-center" src="../_images/test_cases.png" />
+<br/>
+
+After your plugin is published, you should also test actual end user data. Any user prompts used in testing should be thoroughly cleaned.</section>
+<section id="run-the-tests">
+<h2>Run the Tests<a class="headerlink" href="#run-the-tests" title="Permalink to this heading">#</a></h2>
+<p>When your test plan has been configured and your test cases have been created, you can run your tests from the <em>Run Test Cases</em> subtab of the <em>Validate</em> tab. Clicking the Prepare Launch button will bring up a modal for selecting the type of tests to run and which operations to test. Click the Run button to begin the tests.
+.. Type button is only set to “interactive” right now. Need more info</p>
+<p>Test results will be updated as each permutation completes, displaying the parameters generated for each prompt. Green checkmarks indicate the LLM generated the expected parameters, while red x’s indicate a mismatch. You can review each result and update signature helpers to resolve cases where the plugin is not generating the expected values. Clicking the Results button at the top of the page will show an overview of the current testing outcome.</p>
+<img alt="Screenshot of plugin tests after running" class="align-center" src="../_images/test_cases.png" />
+<br/><p>Previous test results can be viewed from the <em>Past Runs</em> subtab. You will be presented with a list of timestamps for each previous test run, with the option to view high-level information by clicking on the timestamp. This information includes the test plan used, the accuracy of the results, the average run time for each permutation, the number of cases run, tokens used, and the cost of running the tests.</p>
+<img alt="Screenshot of plugin tests after running" class="align-center" src="../_images/test_past_overview.png" />
+<br/><p>You can also click the list icon to view more detailed information about each test that was run.</p>
+<img alt="Screenshot of plugin tests after running" class="align-center" src="../_images/test_past_detail.png" />
+<br/></section>
+<section id="share-with-team-members">
+<h2>Share with Team Members<a class="headerlink" href="#share-with-team-members" title="Permalink to this heading">#</a></h2>
+<p>You can share your plugin with your team at any time from the <em>Share</em> tab. Use the <em>Team</em> subtab and toggle the access settings for team members to update their access settings.</p>
+<img alt="Screenshot of the screen to share a plugin with your team" class="align-center" src="../_images/share_team.png" />
+<br/></section>
+<section id="publish-to-catalogs">
+<h2>Publish to Catalogs<a class="headerlink" href="#publish-to-catalogs" title="Permalink to this heading">#</a></h2>
+<p>When you are ready to publish your plugin, you can publish it from the <em>Share</em> tab by navigating to the <em>Publish</em> subtab. Plugins can be published to any combination of the following places:
+#. Internally within a business
+#. Externally at your marketplace
+#. On the OpenPlugin marketplace
+#. On your personal creator page</p>
+<p>Prior to publication, you can choose to manage the catalogs your plugin appears in, adding or deleting catalogs from the list at the bottom of the screen. You can also set the plugin’s priority in each marketplace, which determines the order it appears in the catalog. Lower numbers indicate higher priority.</p>
+<p>When you are ready to share, click the Publish Plugin button. You will be presented with a modal to designate marketplaces and catalogs for publication. From this modal, you can use the Publish button to complete publication.</p>
+</section>
+<section id="monitor-success-rates">
+<h2>Monitor Success Rates<a class="headerlink" href="#monitor-success-rates" title="Permalink to this heading">#</a></h2>
+<p>Though OpenPlugin can’t interpret the intent of a user’s prompt, the Plugin Builder homepage displays high-level stats showing how frequently your plugin makes successful API calls (meaning an HTTP 200 response was received). These stats are presented for the past 24 hours and the past 30 days.</p>
+<img alt="Screenshot of the plugin monitoring page" class="align-center" src="../_images/monitor.png" />
+<br/></section>
+<section id="scale-servers">
+<h2>Scale Servers<a class="headerlink" href="#scale-servers" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p><em>OpenPlugin was designed as a stateless service. This allows it be be horizontally scaled. Typically, your OpenPlugin hosting provider takes on the responsibility of auto-scaling.</em></p>
+</div></blockquote>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="create_plugin_3rd_party_api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Create a Plugin from 3rd Party API</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-an-openplugin">Generate an OpenPlugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paste-api-documentation">Paste API Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-swagger-url-or-file">Create from a Swagger URL or file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-the-chatgpt-plugin-manifest-file">Create from the ChatGPT Plugin Manifest file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#give-it-a-description">Give it a description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-security">Set up Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oauth">OAuth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-level-user-level">Service Level &amp; User Level</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#provide-sample-prompts">Provide Sample Prompts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tailor-the-api-call">Tailor the API Call</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-the-api-s-response">Customize the API’s Response</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-call-evaluators">Post-Call Evaluators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-templates">Formatting Templates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jsx">JSX</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jinja">Jinja</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-cleanup-helper">Plugin Cleanup Helper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-your-plugin">Document Your Plugin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-some-tests">Write Some Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-tests">Run the Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#share-with-team-members">Share with Team Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-to-catalogs">Publish to Catalogs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitor-success-rates">Monitor Success Rates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-servers">Scale Servers</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shrikant M & Barrett J
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Imprompt.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
