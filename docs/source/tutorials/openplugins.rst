@@ -212,7 +212,7 @@ Though JSX templates do not offer full scripting, they allow you to format your 
 .. raw:: html
 
   <br/>
-  
+
 .. note:: 
   To prevent cross-site scripting (XSS) attacks, some typical JSX patterns will not work in the template editor.
   
@@ -289,7 +289,7 @@ Once your test cases are generated, they will appear below the Generate Test Cas
 
   <br/>
 
-After your plugin is published, you should also test actual end user data. Any user prompts used in testing should be thoroughly cleaned.
+  After your plugin is published, you should also test actual end user data. Any user prompts used in testing should be thoroughly cleaned.
 
 
 Run the Tests
@@ -299,8 +299,33 @@ When your test plan has been configured and your test cases have been created, y
 
 Test results will be updated as each permutation completes, displaying the parameters generated for each prompt. Green checkmarks indicate the LLM generated the expected parameters, while red x's indicate a mismatch. You can review each result and update signature helpers to resolve cases where the plugin is not generating the expected values. Clicking the Results button at the top of the page will show an overview of the current testing outcome. 
 
-Previous test results can be viewed from the *Past Runs* subtab. You will be presented with a list of timestamps for each previous test run, with the option to view high-level information by clicking on the timestamp. This information includes the test plan used, the accuracy of the results, the average run time for each permutation, the number of cases run, tokens used, and the cost of running the tests. You can also click the list icon to view more detailed information about each test that was run.
+.. image:: /_images/tutorial_new_plugin_dec23/test_cases.png
+  :alt: Screenshot of plugin tests after running
+  :align: center 
 
+.. raw:: html
+
+  <br/>
+
+Previous test results can be viewed from the *Past Runs* subtab. You will be presented with a list of timestamps for each previous test run, with the option to view high-level information by clicking on the timestamp. This information includes the test plan used, the accuracy of the results, the average run time for each permutation, the number of cases run, tokens used, and the cost of running the tests.
+
+.. image:: /_images/tutorial_new_plugin_dec23/test_past_overview.png
+  :alt: Screenshot of plugin tests after running
+  :align: center 
+
+.. raw:: html
+
+  <br/>
+
+You can also click the list icon to view more detailed information about each test that was run.
+
+.. image:: /_images/tutorial_new_plugin_dec23/test_past_detail.png
+  :alt: Screenshot of plugin tests after running
+  :align: center 
+
+.. raw:: html
+
+  <br/>
 
 Share with Team Members
 =======================
